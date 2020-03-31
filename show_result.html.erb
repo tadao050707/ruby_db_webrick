@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <h1>評価画面</h1>
+    <% require 'pg' %>
+    <% connection = PG.connect(dbname: "cdp") %>
+    <% connection.internal_encoding = "UTF-8" %>
+    <% results = connection.exec("select * from sample;") %>
+
+    <table>
+      <% results.each do |record| %>
+        <tr>
+          <td><%= record["number"] %></td>
+          <td><%= record["body"] %></td>
+        </tr>
+　　  <% end %>
+　  </table>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <h1>評価画面</h1>
+    <% require 'pg' %>
+    <% connection = PG.connect(dbname: "cdp") %>
+    <% connection.internal_encoding = "UTF-8" %>
+    <form action="input_database.cgi" method="POST" >
+       1~5で評価を入力してください<br><br>
+      <input type="number" name="input" ><br>
+       コメントを入力してください<br><br>
+      <input type="text"  name="input" ><br>
+      <input type="submit" name="送信" >
+    </form>
+    <form action="show_result.cgi" method="POST" >
+       評価一覧を確認するにはこちらをクリック<br><br>
+      <input type="submit" name="送信" >
+    </form>
+  </body>
+</html>
